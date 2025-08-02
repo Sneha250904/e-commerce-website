@@ -15,19 +15,43 @@
         <div class="logo">
           <h2>Buy Now</h2>
         </div>
-        <nav>
+        <nav class="navigation">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">My Account</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#products">Store</a></li>
+            <li><a href="#reviews">Reviews</a></li>
           </ul>
         </nav>
-        <img src="/images/menu.png" alt="" class="menu-icon" />
+        <div class="navbar-actions">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search products...">
+            <div class="search-results" id="search-results"></div>
+          </div>
+          <div class="cart-dropdown">
+            <div class="cart-icon" id="cart-toggle">
+              <i class="fa-solid fa-shopping-cart"></i>
+              <span class="cart-count" style="display: none;">0</span>
+            </div>
+            <div class="cart-dropdown-content" id="cart-dropdown">
+              <div class="cart-header">
+                <h3>Shopping Cart</h3>
+              </div>
+              <div class="cart-items-dropdown" id="cart-items-dropdown">
+                <p class="empty-cart">Your cart is empty</p>
+              </div>
+              <div class="cart-footer">
+                <div class="cart-total" id="cart-total">Total: $0.00</div>
+                <button class="view-cart-btn" id="clear-cart-btn">Remove All Items</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="/images/menu.png" alt="" class="menu-icon mobile-menu-toggle" />
       </div>
 
       <!--Home Main Section-->
-      <div class="main">
+      <div class="main" id="home">
         <div class="column">
           <h1>
             Bring <span>Style</span> Into Your Everyday!
@@ -35,7 +59,7 @@
           <p>
            Discover products that add personality, charm, and flair to your lifestyle.
           </p>
-          <a class="button">Explore Products</a>
+          <a class="button" href="#products">Explore Products</a>
         </div>
         <div class="column">
           <img src="/images/header-image.png" alt="" />
@@ -44,18 +68,18 @@
     </div>
 
     <!--Catgeory Section-->
-    <div class="categories">
+    <div class="categories" id="categories">
       <h2>Top Categories</h2>
       <div class="row">
-        <div class="category">
+        <div class="category" data-category="watches">
           <img src="/images/category-1.jpg" alt="" />
           <p><span>Upto 20% Off</span> | Watches</p>
         </div>
-        <div class="category">
+        <div class="category" data-category="shoes">
           <img src="/images/category-2.jpg" alt="" />
           <p><span>Upto 15% Off</span> | Shoes</p>
         </div>
-        <div class="category">
+        <div class="category" data-category="clothing">
           <img src="/images/category-3.jpg" alt="" />
           <p><span>Upto 25% Off</span> | Tshirts and Hoodies</p>
         </div>
@@ -63,12 +87,18 @@
     </div>
 
     <!--Products Section-->
-    <div class="products">
+    <div class="products" id="products">
       <h2>Featured Products</h2>
+      <div class="category-filters">
+        <button class="category-filter active" data-category="all">All</button>
+        <button class="category-filter" data-category="clothing">Clothing</button>
+        <button class="category-filter" data-category="shoes">Shoes</button>
+        <button class="category-filter" data-category="watches">Watches</button>
+      </div>
       <div class="row">
-        <div class="product">
-          <img src="/images/product-1.jpg" alt="" />
-          <h4>Red Printed T-Shirt</h4>
+        <div class="product product-card" data-product-id="prod-1" data-category="clothing">
+          <img src="/images/product-1.jpg" alt="Red Printed T-Shirt" />
+          <h4 class="product-name">Red Printed T-Shirt</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -76,34 +106,30 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star-half-stroke"></i>
           </div>
-          <p>$50.00</p>
+          <p class="price current-price">$50.00</p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
         </div>
-        <div class="product">
-          <img src="/images/product-2.jpg" alt="" />
-          <h4>HX Sports Shoes</h4>
+        <div class="product product-card" data-product-id="prod-2" data-category="shoes">
+          <img src="/images/product-2.jpg" alt="HX Sports Shoes" />
+          <h4 class="product-name">HX Sports Shoes</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
-          <p>$125.00</p>
-        </div>
-        <div class="product">
-          <img src="/images/product-3.jpg" alt="" />
-          <h4>Comfortable Joggers</h4>
-          <div class="rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+          <p class="price current-price">$125.00</p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
           </div>
-          <p>$65.00</p>
         </div>
-        <div class="product">
-          <img src="/images/product-4.jpg" alt="" />
-          <h4>Puma Plain Blue T-Shirt</h4>
+        <div class="product product-card" data-product-id="prod-3" data-category="clothing">
+          <img src="/images/product-3.jpg" alt="Comfortable Joggers" />
+          <h4 class="product-name">Comfortable Joggers</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -111,7 +137,27 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
-          <p>$105.00</p>
+          <p class="price current-price">$65.00</p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
+        </div>
+        <div class="product product-card" data-product-id="prod-4" data-category="clothing">
+          <img src="/images/product-4.jpg" alt="Puma Plain Blue T-Shirt" />
+          <h4 class="product-name">Puma Plain Blue T-Shirt</h4>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="price current-price">$105.00</p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
         </div>
       </div>
     </div>
@@ -120,9 +166,9 @@
     <div class="products">
       <h2>Today's Deals</h2>
       <div class="row">
-        <div class="product">
-          <img src="/images/product-5.jpg" alt="" />
-          <h4>Zen's Men Casual Shoes</h4>
+        <div class="product product-card" data-product-id="prod-5" data-category="shoes">
+          <img src="/images/product-5.jpg" alt="Zen's Men Casual Shoes" />
+          <h4 class="product-name">Zen's Men Casual Shoes</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -130,34 +176,30 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star-half-stroke"></i>
           </div>
-          <p><del>$125.00</del> &nbsp; $105.00</p>
+          <p class="price"><del>$125.00</del> &nbsp; <span class="current-price">$105.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
         </div>
-        <div class="product">
-          <img src="/images/product-6.jpg" alt="" />
-          <h4>Puma Casual T-Shirt</h4>
+        <div class="product product-card" data-product-id="prod-6" data-category="clothing">
+          <img src="/images/product-6.jpg" alt="Puma Casual T-Shirt" />
+          <h4 class="product-name">Puma Casual T-Shirt</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
-          <p><del>$80.00</del> &nbsp; $65.00</p>
-        </div>
-        <div class="product">
-          <img src="/images/product-7.jpg" alt="" />
-          <h4>HX Socks (Set of 3)</h4>
-          <div class="rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+          <p class="price"><del>$80.00</del> &nbsp; <span class="current-price">$65.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
           </div>
-          <p><del>$35.00</del> &nbsp; $25.00</p>
         </div>
-        <div class="product">
-          <img src="/images/product-8.jpg" alt="" />
-          <h4>Fossil TX23 Watch</h4>
+        <div class="product product-card" data-product-id="prod-7" data-category="clothing">
+          <img src="/images/product-7.jpg" alt="HX Socks (Set of 3)" />
+          <h4 class="product-name">HX Socks (Set of 3)</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -165,50 +207,86 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
-          <p><del>$215.00</del> &nbsp; $210.00</p>
-        </div>
-        <div class="product">
-          <img src="/images/product-9.jpg" alt="" />
-          <h4>RD Watch NC05</h4>
-          <div class="rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+          <p class="price"><del>$35.00</del> &nbsp; <span class="current-price">$25.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
           </div>
-          <p><del>$135.00</del> &nbsp; $128.00</p>
         </div>
-        <div class="product">
-          <img src="/images/product-10.jpg" alt="" />
-          <h4>Sparks Premium Sports Shoes</h4>
+        <div class="product product-card" data-product-id="prod-8" data-category="watches">
+          <img src="/images/product-8.jpg" alt="Fossil TX23 Watch" />
+          <h4 class="product-name">Fossil TX23 Watch</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
           </div>
-          <p><del>$150.00</del> &nbsp; $132.00</p>
+          <p class="price"><del>$215.00</del> &nbsp; <span class="current-price">$210.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
         </div>
-        <div class="product">
-          <img src="/images/product-11.jpg" alt="" />
-          <h4>Boyex Grey Casuals</h4>
+        <div class="product product-card" data-product-id="prod-9" data-category="watches">
+          <img src="/images/product-9.jpg" alt="RD Watch NC05" />
+          <h4 class="product-name">RD Watch NC05</h4>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="price"><del>$135.00</del> &nbsp; <span class="current-price">$128.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
+        </div>
+        <div class="product product-card" data-product-id="prod-10" data-category="shoes">
+          <img src="/images/product-10.jpg" alt="Sparks Premium Sports Shoes" />
+          <h4 class="product-name">Sparks Premium Sports Shoes</h4>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="price"><del>$150.00</del> &nbsp; <span class="current-price">$132.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
+        </div>
+        <div class="product product-card" data-product-id="prod-11" data-category="shoes">
+          <img src="/images/product-11.jpg" alt="Boyex Grey Casuals" />
+          <h4 class="product-name">Boyex Grey Casuals</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star-half-stroke"></i>
           </div>
-          <p><del>$110.00</del> &nbsp; $100.00</p>
+          <p class="price"><del>$110.00</del> &nbsp; <span class="current-price">$100.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
         </div>
-        <div class="product">
-          <img src="/images/product-12.jpg" alt="" />
-          <h4>Nike Gym Pants</h4>
+        <div class="product product-card" data-product-id="prod-12" data-category="clothing">
+          <img src="/images/product-12.jpg" alt="Nike Gym Pants" />
+          <h4 class="product-name">Nike Gym Pants</h4>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
-          <p><del>$105.00</del> &nbsp; $90.00</p>
+          <p class="price"><del>$105.00</del> &nbsp; <span class="current-price">$90.00</span></p>
+          <div class="product-actions">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+          </div>
         </div>
       </div>
     </div>
@@ -233,7 +311,7 @@
     </div>
 
     <!--Reviews-->
-    <div class="reviews">
+    <div class="reviews" id="reviews">
       <h2>What Our Customer's Say</h2>
       <div class="row">
         <div class="review">
@@ -284,6 +362,20 @@
       </div>
     </div>
 
+    <!--Newsletter Section-->
+    <div class="newsletter">
+      <div class="newsletter-container">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter and get the latest deals and updates!</p>
+        <form id="newsletter-form">
+          <div class="newsletter-input">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!--Footer-->
     <div class="footer">
       <div class="app row">
@@ -325,5 +417,7 @@
       src="https://kit.fontawesome.com/b62d5413a8.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./script.js"></script>
+  
   </body>
 </html>
